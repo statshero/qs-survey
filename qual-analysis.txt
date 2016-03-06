@@ -1,0 +1,448 @@
+
+> # This function creates an ordered frequency table of the codes used
+> # Option for length 
+> fre.table <- function(dta, id = "Response", list = 30) {
++   all.codes <- melt(dta[, c(id, codes)], id, na.rm = TRUE)
++   x <- as.data.frame(sort(table(all.codes$value), TRUE)[1:min(list, length(unique(all.codes$value)))])
++   names(x)  <- 'count'
++   return(x)
++ }
+
+> # G74_Q0008b – Any specific reasons why you don't do analysis on your data?
+> fre.table(G74_Q0008b.ch)
+                                  count
+Lack of time                          4
+Investment not worthwhile             3
+Not enough data                       3
+Not sure what could be done           3
+Macro trends mostly                   2
+Unclear objectives                    2
+                                      1
+Analysis available already            1
+Apps don't provide analysis           1
+Do not have tools                     1
+Expect to do in future                1
+Lack of knowledge                     1
+Looking for simple tools              1
+No need                               1
+No need for                           1
+Not needed                            1
+Not required                          1
+Not sufficienct data to correlate     1
+Not tried                             1
+Tools lacking                         1
+
+> fre.table(G74_Q0008b.al)
+                               count
+lack of time                       6
+lack of demand                     5
+right tools                        5
+lack of expertise                  4
+data analysis correlations         3
+data integration                   2
+benchmark                          1
+cholesterol                        1
+comittment                         1
+committment                        1
+data analysis patterns             1
+data export                        1
+ease of data collection            1
+lack of data analysis patterns     1
+lack of objective                  1
+long term analysis                 1
+short term management              1
+
+> fre.table(G74_Q0008b.fd)
+                                      count
+no time                                   5
+no motivation                             4
+no goal                                   3
+no need                                   3
+no tools                                  3
+will do in future                         3
+lack of knowledge                         2
+not enough data                           2
+can't track the metrics easily enough     1
+done by tech                              1
+extraction problems                       1
+lack of benchmark                         1
+lack of integration                       1
+maybe in future                           1
+no inspiration                            1
+not enough data points                    1
+prefer short term                         1
+too difficult                             1
+too tedious                               1
+
+> # G74_Q0003 - Any specific challenges with data collection?
+> fre.table(G74_Q0003.ch)
+                               count
+Aggregation                        9
+Inaccuracy                         7
+Lack of time                       7
+Maintaining habit                  6
+Lack of automation                 5
+Silos                              5
+Too much effort                    5
+Analysis                           3
+Battery life                       2
+Difficult to combine data sets     2
+Ease of Use                        2
+High cost                          2
+Inaccuracy of data                 2
+Lack of motivation                 2
+Privacy                            2
+Cheaper devices and tests          1
+Community to share with            1
+Connectivity                       1
+Difficult to use                   1
+Discipline of doing                1
+Ease of use                        1
+Export of data                     1
+Finding a good tool/apps           1
+Finding good tools                 1
+Inaacuracy                         1
+Insight                            1
+Insight into data                  1
+Lack fo time                       1
+Lack of automatic export           1
+Lack of export                     1
+
+> fre.table(G74_Q0003.al)
+                                count
+ease of data collection            24
+right tools                        13
+data integration                    7
+data ownership                      5
+data analysis correlations          4
+lack of accuracy                    4
+lack of UI                          4
+data analysis                       3
+data analysis correlation           3
+data consistency                    3
+data export                         3
+data aggregation                    2
+data format                         2
+data storage                        2
+lack of automation                  2
+lack of sensor accuracy             2
+lack of time                        2
+motivation                          2
+number of parameters to collect     2
+sleep                               2
+time required                       2
+analysis                            1
+automatic data analysis             1
+backups                             1
+battery life                        1
+battery life mobile                 1
+blood pressure                      1
+blood sugar                         1
+blood test                          1
+carbohydrates                       1
+
+> fre.table(G74_Q0003.fd)
+                         count
+want automation             14
+integration                 12
+time                        12
+accuracy                     8
+right tool                   7
+data access                  4
+expensive                    4
+motivation                   4
+habituation                  3
+aggregation                  2
+data integration             2
+data privacy                 2
+data security                2
+no right tool                2
+battery life                 1
+collection difficulties      1
+consistency                  1
+correlation                  1
+data collection              1
+data into knowledge          1
+data management              1
+data mining difficulties     1
+data storage                 1
+ease of use                  1
+hard to habituate            1
+interpretation               1
+lack of accuracy             1
+lack of understanding        1
+making meaning               1
+remembering to collect       1
+
+> # G74_Q0010 – How could the QS community help you more?
+> fre.table(G74_Q00010.rp)
+                     count
+sharing                 11
+more information         7
+tools                    7
+online community         6
+inspiration              4
+more (of everything)     4
+more meetups             4
+open source              3
+regular updates          3
+social events            3
+tool talks               3
+tools information        3
+intuitive tools          2
+-                        1
+certification            1
+certifications           1
+courses                  1
+data access              1
+developers               1
+easy analysis            1
+lobbying                 1
+more export options      1
+more talks               1
+more tools               1
+qs data types            1
+specialist talks         1
+standards                1
+templates                1
+testing                  1
+tracking talks           1
+
+> fre.table(G74_Q00010.al)
+                          count
+sharing                       6
+inspiration                   4
+data analysis                 3
+meetups                       3
+tools                         3
+updates                       3
+presentations                 2
+QS certification              2
+updates on tools              2
+ devices directory            1
+automated apps                1
+community                     1
+comparison with others        1
+contact with developers       1
+data export                   1
+data privacy                  1
+ease of data collection       1
+easy to use tools             1
+examples                      1
+feedback for developers       1
+focus on topics               1
+group discussion              1
+ideas                         1
+like-mindness                 1
+meta-aggregation platform     1
+methods                       1
+more data                     1
+open data                     1
+open source software          1
+standards                     1
+
+> fre.table(G74_Q00010.nb)
+                                         count
+share expertise                              7
+encourage networking                         5
+recommend tools                              5
+suggest best new tools                       4
+acredit tools                                3
+facilitate data-type specific discussion     3
+create open source tools                     2
+keep community updated                       2
+share ideas                                  2
+share statistical expertise                  2
+better app directory                         1
+centralise data collection                   1
+communicate tool launches                    1
+communicate tracking trends                  1
+connect with developers                      1
+create simple tools                          1
+create single forum                          1
+create useful templates                      1
+discuss data aggregation                     1
+exchange experience                          1
+inspire members                              1
+motivate others                              1
+promote data exports                         1
+provide app feedback                         1
+solve common tracking problems               1
+suggest standards                            1
+
+> # G74_Q0009 – In terms of personal data, is there anything you're trying to achieve that you can't yet do?
+> fre.table(G74_Q0009.rp)
+                    count
+self-tracking          12
+correlation            11
+integration             9
+aggregation             6
+analysis                5
+data store              4
+visualization           4
+food                    3
+sleep                   3
+diet                    2
+neural data             2
+price                   2
+real-time               2
+regular measurement     2
+self-hacking            2
+specific tool           2
+all data                1
+compatibility           1
+domain progress         1
+export                  1
+frequency               1
+goal correlation        1
+google scripts          1
+granular time           1
+integation              1
+joker                   1
+less effort             1
+lifestyle variables     1
+location                1
+metadata                1
+
+> fre.table(G74_Q0009.ua)
+                 count
+specific project    21
+analysis            11
+aggregation          9
+automation           3
+correlation          3
+tracking             3
+control              2
+datastore            2
+lots                 2
+usability            2
+visualisation        2
+compatability        1
+cost                 1
+few things           1
+product              1
+visualistion         1
+
+> # G74_Q0008 – What kind(s) of analysis do you do?
+> fre.table(G74_Q0008.nb)
+                              count
+analysis in spreadsheets         30
+use standard app reports         23
+custom analysis                  15
+custom analysis scripts           4
+analysis in R                     3
+correlation                       3
+regression                        3
+use standard exercise metrics     3
+basic observation                 2
+AB testing                        1
+analysis by observation           1
+analysis by visualisation         1
+analysis in Exist                 1
+analysis in journal               1
+analysis in perl                  1
+analysis in SPSS                  1
+analysis in statistica            1
+analysis in tableau               1
+charts in spreadsheets            1
+identifying trends                1
+manual analysis                   1
+selfengine                        1
+significance                      1
+
+> fre.table(G74_Q0008.rp)
+               count
+Spreadsheet       14
+spreadsheet        9
+Tools              7
+Specific tool      6
+Specific tools     6
+Own tools          5
+specific tool      5
+Correlation        4
+exercise           4
+Manual             4
+Review             4
+tools              4
+correlation        3
+Regression         3
+Time               3
+Visualization      3
+Aggregation        2
+Scripts            2
+Self tracking      2
+Spreadsheets       2
+Aggregate          1
+aggregation        1
+Automate           1
+automated          1
+bike               1
+Changes            1
+Compare            1
+cycling            1
+Excel              1
+Exercise           1
+
+> # G74_Q0006b – Please describe these concerns
+> fre.table(G74_Q0006b.al)
+                     count
+data ownership          20
+privacy                 16
+data export             10
+data aggregation         5
+data backup              5
+informed sharing         5
+commercial interests     4
+data deletion            4
+data storage             4
+informed consent         4
+open formats             4
+data exploitation        3
+anonymisation            2
+consent                  2
+data analysis            2
+open format              2
+transparency             2
+benefit from data        1
+commercial interest      1
+compatibility            1
+data accuracy            1
+data compatibility       1
+data formats             1
+data paranoia            1
+data protection          1
+data security            1
+data visualisation       1
+differential pricing     1
+fraud                    1
+hardware device          1
+
+> fre.table(G74_Q0006b.ch)
+                        count
+privacy                     9
+data export                 7
+control                     6
+aggregation                 5
+permissions                 5
+commercial exploitation     4
+data loss                   4
+data removal                4
+lack of standards           4
+anonymisation               3
+insight                     3
+ownership                   3
+insurance                   2
+security                    2
+vendor lockin               2
+concerns if ill             1
+data ownership              1
+identity fraud              1
+Insurance                   1
+jargon                      1
+lack of transparency        1
+limited insight             1
+lock in                     1
+ownsership                  1
+pemissions                  1
+transparency                1
+trust                       1
